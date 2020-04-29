@@ -1,0 +1,175 @@
+:root {
+    --gutter: 4vh;
+    --container-background: rgba(64,67,78,.75);
+    --container-background2: #656a7a;
+    --box-background: #04080f;
+    --font-color: #efe9f4;
+}
+
+@font-face {
+    font-family: slick-light;
+    src: url("../fonts/Rajdhani-Light.ttf");
+}
+
+* {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+h1, h2 {
+    display: block;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../img/cube.jpg);
+    color: var(--font-color);
+    font-family: slick-light;
+}
+
+#container {
+    width: 75vw;
+    height: 90vh;
+    background-color: var(--container-background);
+    margin: auto;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: var(--gutter) 2fr calc(var(--gutter)*2) 1fr var(--gutter) 1fr var(--gutter);
+    grid-template-rows: var(--gutter) calc(var(--gutter)*2) calc(var(--gutter)*1) auto var(--gutter);
+    grid-template-areas:
+                        ". . . . . . ."
+                        ". sub-grid sub-grid sub-grid sub-grid sub-grid ."
+                        ". . . . . . ."
+                        ". timer . times-list . averages ."
+                        ". . . . . . .";
+}
+
+#sub-grid {
+    grid-area: sub-grid;
+    display: grid;
+    grid-template-columns: 1fr calc(var(--gutter)*2) 8fr;
+    grid-template-areas: "sig . scramble"
+}
+
+#sig {
+    background-color: var(--box-background);
+    grid-area: sig;
+}
+
+#scramble-box {
+    background-color: var(--box-background);
+    grid-area: scramble;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25em;
+}
+
+#timer-box {
+    background-color: var(--box-background);
+    grid-area: timer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#times-list-box {
+    background-color: var(--box-background);
+    grid-area: times-list;
+    display: flex;
+    justify-content: center;
+}
+
+
+#times-list-box li {
+    text-align: center;
+    font-size: 2.25em;
+    cursor: pointer;
+}
+
+#times-list-box li:hover {
+    text-decoration: line-through;
+    color: var(--container-background);
+}
+
+#sub-grid-2 {
+    grid-area: averages;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 1fr var(--gutter) 1fr;
+    grid-template-areas:
+                        "calcs"
+                        "."
+                        "directions";
+    font-size: .75em;
+}
+
+#calculations-box {
+    background-color: var(--box-background);
+    grid-area: calcs;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+#instructions-box {
+    background-color: var(--box-background);
+    grid-area: directions;
+    display: flex;
+    align-items: center;
+}
+
+.clock-font-size {
+    font-size: 6em;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.cube-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.box-styles {
+    border-radius: 10px;
+    box-shadow: 2px 2px 50px black;
+}
+
+.average-box-styles {
+    border-radius: 10px;
+}
+
+.directions {
+    margin: 0 40px 0 40px;
+}
+
+.onehundred-width {
+    width: 100%;
+}
+
+@media only screen and (max-width: 1420px) {
+    #sub-grid-2 {
+        font-size: .55em;
+    }
+    #scramble-box {
+        font-size: .75em;
+    }
+    .directions {
+        margin: 0 15px 0 15px;
+    }
+    .clock-font-size {
+        font-size: 4em;
+    }
+    #times-list-box li {
+        font-size: 1.75em;
+    }
+}
