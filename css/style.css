@@ -54,6 +54,7 @@ body {
 #sig {
     background-color: var(--box-background);
     grid-area: sig;
+    font-size: .7em;
 }
 
 #scramble-box {
